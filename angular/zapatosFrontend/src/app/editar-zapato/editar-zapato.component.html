@@ -1,39 +1,37 @@
+<div class="container">
+  <h1 >{{titulo}}</h1>
 
-
-<h1>{{titulo}}</h1>
-
-<div class="row">
-  <div class="col-sm-12">
-    <span><a [routerLink]="['/crearZ']">Crear Zapatos</a></span>
+  <div class="row">
+    <div class="col-sm-4">
+      <span><a [routerLink]="['/crearZ']">Crear Zapatos</a></span>
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"></div>
   </div>
-  <div class="col-sm-12 animated flipInX" *ngFor="let zapato of zapatos">
 
+  <div class="col-sm-12 animated flipInX" *ngFor="let zapato of zapatos">
 
     <div class="text-center">
       <p>ID {{zapato.id}}</p>
       <h3>Codigo: {{zapato.nombre}}</h3>
-      <p><img src="{{zapato.imagen}}" alt="" height="100" width="100"> </p>
+      <p><img src="{{zapato.imagen}}" alt="" height="100" width="100"></p>
       <p>precio: {{zapato.precio}}</p>
       <p>cantidad: {{zapato.cantidad}}</p>
     </div>
 
     <div class="row animated flipInY" [hidden]="!zapato.formularioCerrado">
 
-      <div class="col-sm-5">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
         <button class="btn btn-block btn-info"
                 (click)="zapato.formularioCerrado = !zapato.formularioCerrado"
-        >Actualizar</button>
+        >Actualizar
+        </button>
       </div>
-
-      <div class="col-sm-2"></div>
-
-      <div class="col-sm-5">
-
+      <div class="col-sm-3">
         <button class="btn btn-block btn-danger" (click)="borrarZapato(zapato.id)">Borrar</button>
-
       </div>
-
-
+      <div class="col-sm-3"></div>
 
 
     </div>
@@ -103,5 +101,6 @@
       </form>
     </div>
   </div>
-</div>
 
+
+</div>

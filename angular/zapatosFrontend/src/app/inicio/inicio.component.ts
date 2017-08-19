@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  titulo:String ="Bienvenido COCCOLATI Company";
+  titulo:String ="shop shoes";
   constructor() { }
 
   ngOnInit() {
