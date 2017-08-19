@@ -1,0 +1,107 @@
+
+
+<h1>{{titulo}}</h1>
+
+<div class="row">
+  <div class="col-sm-12">
+    <span><a [routerLink]="['/crearZ']">Crear Zapatos</a></span>
+  </div>
+  <div class="col-sm-12 animated flipInX" *ngFor="let zapato of zapatos">
+
+
+    <div class="text-center">
+      <p>ID {{zapato.id}}</p>
+      <h3>Codigo: {{zapato.nombre}}</h3>
+      <p><img src="{{zapato.imagen}}" alt="" height="100" width="100"> </p>
+      <p>precio: {{zapato.precio}}</p>
+      <p>cantidad: {{zapato.cantidad}}</p>
+    </div>
+
+    <div class="row animated flipInY" [hidden]="!zapato.formularioCerrado">
+
+      <div class="col-sm-5">
+        <button class="btn btn-block btn-info"
+                (click)="zapato.formularioCerrado = !zapato.formularioCerrado"
+        >Actualizar</button>
+      </div>
+
+      <div class="col-sm-2"></div>
+
+      <div class="col-sm-5">
+
+        <button class="btn btn-block btn-danger" (click)="borrarZapato(zapato.id)">Borrar</button>
+
+      </div>
+
+
+
+
+    </div>
+
+    <div class="div" [hidden]="zapato.formularioCerrado">
+
+      <form action="">
+        <form class="animated bounceIn" (ngSubmit)="actualizarZapato(zapato)" #nuevoZapatoForm="ngForm">
+
+          <div class="form-group">
+            <label for="imagen">Foto(URL)</label>
+
+            <input type="text" class="form-control" id="imagen"
+
+                   [(ngModel)]="zapato.imagen" name="imagen"
+                   #imagen="ngModel">
+            <div [hidden]="imagen.valid || imagen.pristine"
+                 class="alert alert-danger">
+              Imagen es requerido
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre"
+                   required
+                   [(ngModel)]="zapato.nombre" name="nombre"
+                   #nombre="ngModel">
+            <div [hidden]="nombre.valid || nombre.pristine"
+                 class="alert alert-danger">
+              Nombre es requerido
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="precio">Precio</label>
+            <input type="number" class="form-control" id="precio"
+                   required
+                   [(ngModel)]="zapato.precio" name="precio"
+                   #precio="ngModel">
+            <div [hidden]="precio.valid || precio.pristine"
+                 class="alert alert-danger">
+              Precio es requerido
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cantidad">Cantidad</label>
+            <input type="number" class="form-control" id="cantidad"
+                   required
+                   [(ngModel)]="zapato.cantidad" name="cantidad"
+                   #cantidad="ngModel">
+            <div [hidden]="cantidad.valid || cantidad.pristine"
+                 class="alert alert-danger">
+              Nombre es requerido
+            </div>
+          </div>
+
+          <button [disabled]="disabledButtons.NuevoZapatoFormSubmitButton||!nuevoZapatoForm.valid" type="submit"
+                  class="btn btn-block btn-success">Update
+
+          </button>
+
+          <button type="button"
+                  class="btn btn-block btn-warning"
+                  (click)="zapato.formularioCerrado = !zapato.formularioCerrado">
+            Cancelar
+          </button>
+        </form>
+      </form>
+    </div>
+  </div>
+</div>
+

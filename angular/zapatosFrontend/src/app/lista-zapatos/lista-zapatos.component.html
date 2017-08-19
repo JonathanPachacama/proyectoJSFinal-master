@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="row">
+<h1>{{titulo}}</h1>
+  </div>
+<div class="row">
+  <div class="col-sm-12">
+    <span><a [routerLink]="['/crearZ']">Crear Zapatos</a></span>
+  </div>
+  <div class="col-sm-12 animated flipInX" *ngFor="let zapato of zapatos">
+
+
+    <div class="text-center">
+      <p>ID {{zapato.id}}</p>
+      <h3>Codigo: {{zapato.nombre}}</h3>
+      <p><img src="{{zapato.imagen}}" alt="" height="100" width="100"> </p>
+      <p>precio: {{zapato.precio}}</p>
+      <p>cantidad: {{zapato.cantidad}}</p>
+    </div>
+
+
+  </div>
+</div>
+
+</div>
