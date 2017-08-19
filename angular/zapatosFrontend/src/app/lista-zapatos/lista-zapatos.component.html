@@ -9,16 +9,23 @@
   </div>
   <div class="col-sm-12 animated flipInX" *ngFor="let zapato of zapatos">
 
-
-    <div class="text-center">
-      <p>ID {{zapato.id}}</p>
-      <h3>Codigo: {{zapato.nombre}}</h3>
-      <p><img src="{{zapato.imagen}}" alt="" height="100" width="100"> </p>
-      <p>precio: {{zapato.precio}}</p>
-      <p>cantidad: {{zapato.cantidad}}</p>
+    <div class="container">
+      <div id="contenedor" class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+          <div class="card" style="width: 20rem; border: solid">
+            <img class="card-img-top" src="{{zapato.imagen}}"  alt="" height="195" width="193">
+            <div class="card-block">
+              <h4 class="card-title">{{zapato.id}} - Codigo: {{zapato.nombre}} </h4>
+              <p>precio: {{zapato.precio}}</p>
+              <p>cantidad: {{zapato.cantidad}}</p>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="col-sm-4"></div>
+      </div>
     </div>
-
-
   </div>
 </div>
 
